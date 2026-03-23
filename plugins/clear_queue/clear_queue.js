@@ -96,10 +96,49 @@ module.exports = {
     // The 'context' argument tells you whether you are in 'main', 'renderer', etc.
     console.log(`Plugin "${this.name}" is running in the "${context}" context.`);
 
+    function addButton(target) {
+      if (!target) {
+        throw "Queue list header not found"
+      }
+      console.log("Adding button to queue list header...");
+
+      const newDiv = document.createElement('div');
+      const btn = document.createElement('button');
+
+      Object.assign(btn.style, {
+        'border-radius': 'var(--tempo-radii-full)',
+        'background': 'var(--tempo-colors-background-accent-primary-default)',
+        'height': 'var(--tempo-sizes-8)',
+        'min-width': 'var(--tempo-sizes-8)',
+        'color': 'var(--tempo-colors-text-accent-onAccent-default)',
+        'padding': '0 10px',
+        'margin-left': '10px',
+      });
+      
+      btn.textContent = 'Clear Queue';
+      btn.onclick = () => clearQueue();
+      
+      newDiv.appendChild(btn);
+      target.appendChild(newDiv);
+    }
+
     function clearQueue() {
       console.log('TODO Clear the queue');
     }
 
-    console.log('TODO Add a button to the top of the queue, addEventListener onclick clearQueue()');
+    const observer = new MutationObserver((mutations, obs) => {
+      const header = document.querySelector('.queuelist-header');
+      
+      if (header) {
+        addButton(header); // Passing the element in case your function needs it
+        obs.disconnect();  // Stop watching once it's found
+        // TODO Reconnect observer when queue is closed again
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 };
