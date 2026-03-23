@@ -27,7 +27,7 @@ Open the program up. Check the navbar's options -> DeezMod -> "Open Plugins".
 
 ## Userscript Compatibility Layer
 DeezMod includes a compatibility layer for userscripts. This means you can port almost every userscript over and it should work the same as in the Web. It was mostly based on Violentmonkey 2.31.0 and a bit of Tampermonkey.
-I cannot guarantee 100% same behaviour.
+I cannot guarantee 100% same behavior.
 
 The layer is not available in the main process in any scope and in any process in the loader scope.
 

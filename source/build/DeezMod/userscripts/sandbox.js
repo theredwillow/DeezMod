@@ -198,7 +198,7 @@ async function create_sandbox(plugin, context, unsafeWindow, built_in_globals, b
 }
 
 function run_in_sandbox(code, sandbox, target) {    
-    const args = Object.assign({ // we are setting them here because we dont want them to be attributes of target, only properties
+    const args = Object.assign({ // we are setting them here because we do not want them to be attributes of target, only properties
         globalThis: sandbox,
         self: sandbox,
     }, target);

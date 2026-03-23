@@ -16,7 +16,7 @@ const path = require('path');
 
 const DEBUG = !process.argv.includes("-a") && !process.argv.includes("--apply");
 
-// plugged togehther with help of ai
+// plugged together with help of ai
 
 async function apply_patches(patches_obj, base_dir='source') {
     const results = [];

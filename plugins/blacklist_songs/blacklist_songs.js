@@ -9,7 +9,7 @@ module.exports = {
     func: () => {
         "use strict";
         class Logger {
-            static LOG_VERY_MANY_THINGS_YES_YES = true; // set to false if you dont want the console getting spammed
+            static LOG_VERY_MANY_THINGS_YES_YES = true; // set to false if you do not want the console getting spammed
 
             constructor() {
                 this.log_textarea = null;

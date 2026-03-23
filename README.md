@@ -10,7 +10,7 @@ When updating deezer manually with the installer (for example to upgrade to vers
 While you have DeezMod installed, the auto updater is disabled.
 
 ## Other Platforms
-Altough built for Windows, due to the crossplatform nature of electron, it should work on Mac and Linux just fine, you just need to install it manually, see the setup instructions.
+Although built for Windows, due to the cross-platform nature of electron, it should work on Mac and Linux just fine, you just need to install it manually, see the setup instructions.
 
 ## Setup
 > Note: any mention of `%localappdata%\Programs\deezer-desktop\` can be replaced with wherever your deezer installation is located.

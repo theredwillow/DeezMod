@@ -50,7 +50,7 @@ module.exports = {
         // Example: %sng_title:#10> :#...>...%%version% | %art_name:#10:#...% | %all_artists:>,:> (More Artists)% | %alb_title:#10> :#>% | %length%
         // %sng_title:#10> :#...>...% -> limit the song title to 10 characters, replacing the rest with "...". If there is an empty space in the first 10 characters, it will be truncated to that point and "..." will be appended.
         // %art_name:#10:#...% -> limit the artist name to 10 characters, replacing the rest with "..." if it exceed that length. No STOP_CHAR is used.
-        // %all_artists:>,:> (More Artists)% -> limit the comma seperated list of all artists to the first artist (by stopping at the first comma) and append " (More Artists)" if there are more artists.
+        // %all_artists:>,:> (More Artists)% -> limit the comma separated list of all artists to the first artist (by stopping at the first comma) and append " (More Artists)" if there are more artists.
         // %alb_title:#10> :#>% -> limit the album title to 10 characters, replacing the rest with nothing if it exceed that length. STOP_CHAR is " " and >SUFFIX is also nothing.
 
         // Invalid placeholders would be:

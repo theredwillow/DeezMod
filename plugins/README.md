@@ -29,7 +29,7 @@ Allows you to blacklist songs/artists from playing. Port of [this](https://githu
 Disable live connection to Deezer which is used to sync things like the current playing track across devices. This for example, allows you to play on multiple devices simultaneously. Runs completely in the background, no UI. Port of [this](https://github.com/bertigert/Deezer-Disable-Live-Connection/) userscript.
 
 ### [Disable Sentry](./disable_sentry/)
-Disables the sending of telementry to Sentry.io.
+Disables the sending of telemetry to Sentry.io.
 
 ### [Discord RPC](./discord_rpc/)
 Automatically displays your currently playing song on Discord. Inspired by https://github.com/JustYuuto/deezer-discord-rpc, has the same features.

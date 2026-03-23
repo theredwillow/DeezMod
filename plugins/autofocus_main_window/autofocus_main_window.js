@@ -13,7 +13,7 @@ module.exports = {
         
         const wait_for_window = setInterval(() => {
             const main_win = application.window;
-            log("Waiting for application.window to be initizalized");
+            log("Waiting for application.window to be initialized");
             if (main_win) {
                 log("application.window is initialized");
                 clearInterval(wait_for_window);

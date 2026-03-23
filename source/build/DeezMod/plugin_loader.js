@@ -53,7 +53,7 @@ async function validate_and_normalize_plugin(plugin, file_path, plugin_names) {
     if (typeof is_enabled === "boolean") {
         plugin.enabled = is_enabled;
     } else {
-        // since this should only happen the first time we see the plugin, which should only happen in the main process, this shouldnt cause ipc calls
+        // since this should only happen the first time we see the plugin, which should only happen in the main process, this should not cause ipc calls
         plugin.enabled = true;
         settings.set_plugin(plugin.name, "enabled", true);
     }

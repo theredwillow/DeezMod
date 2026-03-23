@@ -345,10 +345,10 @@ module.exports = {
                     // types.length must be < 3 if featured was ticked
                     if (types.length > 0) data = await request_albums(last_song, roles, types);
 
-                    if (config.toggles.featured) { // featured is ticked, but maybe there are other options (not all though) ticked as well, but as featured gets every type, we need to get the other types seperately
+                    if (config.toggles.featured) { // featured is ticked, but maybe there are other options (not all though) ticked as well, but as featured gets every type, we need to get the other types separately
                         roles = ["FEATURED"];
                         types = ["EP", "SINGLES", "ALBUM"];
-                        if (data !== null) { // if other types where ticked, we append the featured songs, the data object is still from the normal search though, so if there are more featured songs, we won't get them (there shouldnt be more than 500 though)
+                        if (data !== null) { // if other types where ticked, we append the featured songs, the data object is still from the normal search though, so if there are more featured songs, we won't get them (there should not be more than 500 though)
                             data.artist.albums.edges.push( ...(await request_albums(last_song, roles, types)).artist.albums.edges );
                         } else { // only featured was ticked
                             data = await request_albums(last_song, roles, types);
@@ -375,7 +375,7 @@ module.exports = {
                 // could prob do it better recursively
                 // this is a bit broken if not everything is ticked as we sometimes send 2 requests for featured and everything else.
                 // the main data is from everything else, the featured songs just get appended.
-                // so the nextpage/cursor attributes are from the non featured songs, meaning if there are more featured songs (which shouldnt happen), we will miss them.
+                // so the nextpage/cursor attributes are from the non featured songs, meaning if there are more featured songs (which should not happen), we will miss them.
                 while (data.artist.albums.pageInfo.hasNextPage) {
                     data = await get_albums(data.artist.albums.pageInfo.endCursor);
                     for (let album of data.artist.albums.edges) {
@@ -408,7 +408,7 @@ module.exports = {
                 for (let album_song of resp.results.data) {
                     const song_title = `${album_song.SNG_TITLE} ${album_song.VERSION}`.trim();
 
-                    // if we dont want duplicates but the artist released the song multiple times as different songs
+                    // if we do not want duplicates but the artist released the song multiple times as different songs
                     if (!config.toggles.duplicates && songs_isrc[album_song.ISRC]) {
                         artdump_log.info(`Song ${song_title} is re-released`);
                         continue;
@@ -479,7 +479,7 @@ module.exports = {
                 if (songs[last_dump_song_id] !== undefined) {
                     artdump_log.info(`Song ${songs[last_dump_song_id]} appeared in a previous dump`);
                     // if the song is found here, we won't delete it, we will mark is as deleted and handle it later in the other checks
-                    // thats because if we delete this, the check if the song is in the playlist will be skipped = fails altough the song may be in the playlist
+                    // thats because if we delete this, the check if the song is in the playlist will be skipped = fails although the song may be in the playlist
                     // if that check fails, we check for the ISRC which isnt designed to handle songs which may be in the playlist
                     // that check will always succeed, since the isrc list contains every song
                     // this will result in every song which was removed due to a dump getting flagged by the isrc check
@@ -689,7 +689,7 @@ module.exports = {
                 artdump_log.info("There are no songs to add, exiting");
                 return;
             }
-            data.song_ids.reverse(); // the order we receive is fifo but we need filo (basically). doesnt matter rly tho as sorting playlist afterwards doesnt really work as we add all songs at the same time
+            data.song_ids.reverse(); // the order we receive is fifo but we need filo (basically). does not matter rly tho as sorting playlist afterwards does not really work as we add all songs at the same time
 
             const artist_name = get_current_artist_name();
             if (selected_playlist.getAttribute("data-id") === "-1") {
